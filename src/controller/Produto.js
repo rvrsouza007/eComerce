@@ -6,10 +6,11 @@ export async function createTable(){
     })
 }
 
-export async function selectProdutos(req, res){
+export async function selectPeloId(req, res){
+    let id = req.body.id
     openDb().then(db=>{
-        db.all('SELECT  * FROM Produto')
-        .then(Produtos=> res.json(Produtos))
+        db.all(`SELECT * FROM Produto WHERE id=${id}`)
+        .then(id=> res.json(id))
     });
 }
 

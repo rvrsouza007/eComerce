@@ -6,9 +6,10 @@ export async function createTable(){
     })
 }
 
-export async function selectUsuarios(req, res){
+export async function login (req, res){
+    let {email} = req.body;
     openDb().then(db=>{
-        db.all('SELECT  * FROM Usuario')
+        db.all(`SELECT * FROM Usuario where email="${email}"`)
         .then(Usuarios=> res.json(Usuarios))
     });
 }

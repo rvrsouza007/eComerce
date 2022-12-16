@@ -7,9 +7,10 @@ export async function createTable(){
 }
 
 export async function selectCarrinhos(req, res){
+    let id = req.body.id
     openDb().then(db=>{
-        db.all('SELECT  * FROM Carrinho')
-        .then(Carrinhos=> res.json(Carrinhos))
+        db.all(`SELECT * FROM Produto WHERE id=${id}`)
+        .then(id=> res.json(id))
     });
 }
 

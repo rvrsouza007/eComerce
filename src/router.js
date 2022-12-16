@@ -1,10 +1,9 @@
 import { Router } from "express";
-import {insertProduto, updateProduto, selectProdutos, selectProduto, deleteProduto} from "./controller/Produto.js";
-import {insertUsuario, updateUsuario, selectUsuarios, selectUsuario, deleteUsuario} from "./controller/Usuario.js";
-import {createTable, insertCarrinho, updateCarrinho, selectCarrinhos, selectCarrinho, deleteCarrinho} from "./controller/Carrinho.js";
+import {insertProduto, updateProduto, selectPeloId, selectProduto, deleteProduto} from "./controller/Produto.js";
+import {insertUsuario, updateUsuario, login, selectUsuario, deleteUsuario} from "./controller/Usuario.js";
+import {insertCarrinho, updateCarrinho, selectCarrinhos, selectCarrinho, deleteCarrinho} from "./controller/Carrinho.js";
 
 const router = Router();
-createTable();
 
 router.get('/', (req, res)=>{
     res.json({
@@ -13,13 +12,13 @@ router.get('/', (req, res)=>{
     })
 })
 
-router.get('/produtos', selectProdutos);
+router.get('/produtos', selectPeloId);
 router.get('/produto', selectProduto);
 router.post('/produto', insertProduto);
 router.put('/produto', updateProduto);
 router.delete('/produto', deleteProduto);
 
-router.get('/usuarios', selectUsuarios);
+router.get('/login', login);
 router.get('/usuario', selectUsuario);
 router.post('/usuario', insertUsuario);
 router.put('/usuario', updateUsuario);
