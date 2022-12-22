@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-import router from "./router.js";
+import router from "./src/router.js";
 app.use(router);
 
 app.listen(3000, () => console.log("Api rodando."));
